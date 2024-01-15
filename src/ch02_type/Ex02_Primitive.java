@@ -20,7 +20,7 @@ public class Ex02_Primitive {
 	 short x = 1024;
 	 int y = 1000000;
 	 long z = 300000000L;
-	 System.out.println("%d,%d,%d,%d\n",w,x,y,z);   // format, d-정수,f-실수,s-문자열
+	 System.out.printf ("%d,%d,%d,%d\n",w,x,y,z);   // format, d-정수,f-실수,s-문자열
 	 
 	 
 	/*  실수 계열
@@ -33,8 +33,8 @@ public class Ex02_Primitive {
      */
 	 float f1 = 1.0000001F, f2 = 1.00000001F;
 	 double d1 = 1.000000000000001, d2 = 1.0000000000000001;
-	 System.out.println("f1:" + f1 +,"f2 " + f2);
-	    System.out.println("d1:" + d1 +,"d2 " + d2);
+	 System.out.println("f1:" + f1 +"f2 " + f2);
+	    System.out.println("d1:" + d1 +"d2 " + d2);
 	    
 	    //문자:1 글자
 	    char eng = 'A', kor = '안';

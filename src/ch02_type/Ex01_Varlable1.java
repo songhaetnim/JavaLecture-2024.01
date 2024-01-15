@@ -11,7 +11,7 @@ public class Ex01_Varlable1 {
 		age = 21;
 		int score = 88;  // 변수를 선언하면서 초기화를 동시에 해주는 것
 		var value = age * score; // Java 8 에서는 사용할 수 없음 (안쓸거임)
-		System.out.println("age:" + age +", score:" + score);
+		System.out.println("age:" + age +", score:" + score+value);
 		
 	     /*
 	       * 변수이름 규칙
