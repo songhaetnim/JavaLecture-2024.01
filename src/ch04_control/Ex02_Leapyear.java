@@ -2,7 +2,7 @@ package ch04_control;
 
 import java.util.Scanner;
 
-public class Ex_02Leapyear {
+public class Ex02_Leapyear {
 
 	public static void main(String[] args) {
 		System.out.print("연도 입력> ");

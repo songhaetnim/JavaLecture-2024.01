@@ -2,7 +2,7 @@ package ch04_control;
 
 import java.util.Scanner;
 
-public class Ex11_for {
+public class Ex11_For {
 
 	public static void main(String[] args) {
 		// 1에서 100까지 합
