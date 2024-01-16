@@ -15,16 +15,16 @@ public class ex01_operatlon {
 		System.out.println(s.equals("Hello")); // 참조형의 올바른 방법
 		
 		System.out.println(i == k && k== 4); //코드 연장해서 못씀 i ==안 k== 1(k && k 같으냐)
+		/*
+		 * 논리식1 && 논리식2   논리식1이 false면
+		 * 논리식1 && 논리식2 논리식1이면 true면
+		 */
            
 		// 성적이 70점 이상이면 합격, 그렇지 않으면 불합격
-	int score = 40 + (int) (61 * Math.random());     // 40 ~ 100
-	char grade = score >= 70 ? '급': '낙';
-	System.out.printf("%d, %c, %n", score, grade);
+		int score = 40 + (int) (61 * Math.random());     // 40 ~ 100
+		char grade = score >= 70 ? '급': '낙';
+		System.out.printf("%d, %c, %n", score, grade);
 		
-/*
- * 논리식1 && 논리식2   논리식1이 false면
- * 
- */
 	}
 
 }
