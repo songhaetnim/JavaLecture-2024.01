@@ -2,7 +2,7 @@ package ch05_reference;
 
 import java.util.Arrays;
 
-public class Ec04_MainArgs {
+public class Ex04_MainArgs {
 
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(args));   // 매개변수의 타입은 문자열, 배열 형태로 패싱됨
