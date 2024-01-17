@@ -24,7 +24,5 @@ public class ex01_operatlon {
 		int score = 40 + (int) (61 * Math.random());     // 40 ~ 100
 		char grade = score >= 70 ? '급': '낙';
 		System.out.printf("%d, %c, %n", score, grade);
-		
 	}
-
 }
