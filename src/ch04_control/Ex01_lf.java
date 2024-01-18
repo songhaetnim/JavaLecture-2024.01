@@ -3,7 +3,8 @@ package ch04_control;
 public class Ex01_lf {
 
 	public static void main(String[] args) {
-		int score = 60 + (int) (41 * Math.random());  // 60 ~ 100
+		int score = 60 + (int) (41 * Math.random());  
+		// < dice식 안보고도 쓸정도로 외워야함 60 ~ 100
 		
 		if (score >= 80)
 			System.out.println(score + "점은 평균 이상입니다.");

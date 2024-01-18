@@ -37,7 +37,9 @@ public class Ex_String문제_240117 {
 				int mul = i * k;
 				if (isPalindrome(Integer.toString(mul))) {
 					if (mul > maxPal) {
-						maxPal = mul; max1 = i; max2 = k;
+						maxPal = mul; 
+						max1 = i; 
+						max2 = k;
 					}
 				}
 			}
