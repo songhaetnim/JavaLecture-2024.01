@@ -1,4 +1,4 @@
-package 연습;
+package pp;
 
 public class Ex_문제4 {
 

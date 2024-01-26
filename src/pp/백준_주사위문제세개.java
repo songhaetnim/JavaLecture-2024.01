@@ -1,4 +1,4 @@
-package 연습;
+package pp;
 
 public class 백준_주사위문제세개 {
 

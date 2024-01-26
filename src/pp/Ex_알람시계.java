@@ -1,4 +1,4 @@
-package 연습;
+package pp;
 
 import java.util.Scanner;
 

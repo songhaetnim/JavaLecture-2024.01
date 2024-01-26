@@ -1,16 +1,36 @@
-package ch12_interface.sec11_bank;
+package ch12_interface.sec12_bank_refactor;
 
 public class Account {
 	private String ano;
 	private String owner;
 	private int balance;
+	private int isDeleted;
 	
+	public Account() { }
 	public Account(String ano, String owner, int balance) {
 		this.ano = ano;
 		this.owner = owner;
 		this.balance = balance;
 	}
+	public Account(String ano, String owner, int balance, int isDeleted) {
+		this.ano = ano;
+		this.owner = owner;
+		this.balance = balance;
+		this.isDeleted = isDeleted;
+	}
 	
+	
+	public int getIsDeleted() {
+		return isDeleted;
+	}
+
+
+	public void setIsDeleted(int isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+
+
 	public String getAno() {
 		return ano;
 	}
