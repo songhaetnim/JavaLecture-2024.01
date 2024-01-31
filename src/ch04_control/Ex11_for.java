@@ -47,5 +47,3 @@ public class Ex11_For {
 	}
 
 }
-
-

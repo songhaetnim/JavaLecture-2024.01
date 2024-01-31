@@ -7,7 +7,6 @@ public class BankMain {
 	private static Scanner scan = new Scanner(System.in);
 	private static AccountService accountService = new AccountServiceImpl();
 
-
 	public static void main(String[] args) {
 		boolean run = true;
 		accountArray[0] = new Account("1000", "제임스", 10000);

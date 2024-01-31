@@ -1,4 +1,5 @@
 package ch12_interface.sec04_dao;
+
 //DTO(Data Transfer Object), VO(Value Object) - DB를 액세스할 때 사용되는 데이터 구조
 public class Customer {
 	private int cid;

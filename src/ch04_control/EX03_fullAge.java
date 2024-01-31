@@ -3,7 +3,7 @@ package ch04_control;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class EX03_fullAge {
+public class Ex03_FullAge {
 
 	public static void main(String[] args) {
 		LocalDate today = LocalDate.now();

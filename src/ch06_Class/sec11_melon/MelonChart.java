@@ -1,4 +1,4 @@
-package ch06_Class.sec11_melon;
+package ch06_class.sec11_melon;
 
 public class MelonChart {
 	private int rank;

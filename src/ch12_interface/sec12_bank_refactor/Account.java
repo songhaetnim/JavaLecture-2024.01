@@ -18,18 +18,6 @@ public class Account {
 		this.balance = balance;
 		this.isDeleted = isDeleted;
 	}
-	
-	
-	public int getIsDeleted() {
-		return isDeleted;
-	}
-
-
-	public void setIsDeleted(int isDeleted) {
-		this.isDeleted = isDeleted;
-	}
-
-
 
 	public String getAno() {
 		return ano;
@@ -49,5 +37,10 @@ public class Account {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
+	public int getIsDeleted() {
+		return isDeleted;
+	}
+	public void setIsDeleted(int isDeleted) {
+		this.isDeleted = isDeleted;
+	}
 }
-

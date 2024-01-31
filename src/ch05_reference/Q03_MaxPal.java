@@ -7,21 +7,19 @@ public class Q03_MaxPal {
 		for (int i = 100; i <= 999; i++) {
 			for (int k = i; k <= 999; k++) {
 				int mul = i * k;
-				if (isPalindrome(String.valueOf(mul)))      // "" + mul < 문자열이 될수있다
+				if (isPalindrome(String.valueOf(mul))) {		// "" + mul
 					if (mul > maxPal) {
 						maxPal = mul; x = i; y = k;
 					}
+				}
 			}
 		}
-	
-		System.out.println(x + " x " + y +" = " + maxPal);
+		System.out.println(x + " x " + y + " = " + maxPal);
 	}
-	    static boolean isPalindrome(String str) {
-		  return str.equals(reverse(str));
-	} // str = 리버스한 str
 	
-	
-	
+	static boolean isPalindrome(String str) {
+		return str.equals(reverse(str));
+	}
 	
 	static String reverse(String str) {
 		String reverseStr = "";

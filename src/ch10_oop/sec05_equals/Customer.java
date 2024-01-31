@@ -3,11 +3,10 @@ package ch10_oop.sec05_equals;
 import java.util.Objects;
 
 public class Customer {
-	private int cid; // 고유값   // 필드를 만들어 놓고 마우스 오른쪽클릭후 소스 같은 창을킬것
+	private int cid;
 	private String name;
 	private int age;
 	private boolean adult;
-	
 	
 	public Customer() { }
 	public Customer(int cid, String name, int age, boolean adult) {
@@ -16,7 +15,6 @@ public class Customer {
 		this.age = age;
 		this.adult = adult;
 	}
-	
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -29,6 +27,7 @@ public class Customer {
 		}
 		return false;
 	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(this.cid, this.age);
@@ -38,6 +37,7 @@ public class Customer {
 	public String toString() {
 		return "Customer [cid=" + cid + ", name=" + name + ", age=" + age + ", adult=" + adult + "]";
 	}
+	
 	public int getCid() {
 		return cid;
 	}
@@ -62,5 +62,4 @@ public class Customer {
 	public void setAdult(boolean adult) {
 		this.adult = adult;
 	}
-
 }

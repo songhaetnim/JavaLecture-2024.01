@@ -1,11 +1,10 @@
-package ch06_Class.sec02_customer;// 패키지 만들고 시작
+package ch06_class.sec02_customer;
 
 public class Customer {
-	private int cid; // 고유값   // 필드를 만들어 놓고 마우스 오른쪽클릭후 소스 같은 창을킬것
+	private int cid;
 	private String name;
 	private int age;
 	private boolean adult;
-
 	
 	// 생성자 (Constructor)
 	public Customer() { }
@@ -22,16 +21,12 @@ public class Customer {
 		this.age = age;
 		this.adult = adult;
 	}
-
-
-	// toString() methhod
+	
+	// toString() method
 	@Override
 	public String toString() {
 		return "Customer [cid=" + cid + ", name=" + name + ", age=" + age + ", adult=" + adult + "]";
 	}
-	
-	
-	
 	
 	// Getter/Setter method
 	public int getCid() {
@@ -52,33 +47,10 @@ public class Customer {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public boolean isAdult() {  // boolean는 is로 시작한다 
+	public boolean isAdult() {
 		return adult;
 	}
 	public void setAdult(boolean adult) {
 		this.adult = adult;
 	}
-	
-	// 패키지를 쓰고 점을 찍으면 디렉토리가 나온다
-	// class 는 대문자
-	// 메소드는 소문자
-	// Customer 메소드만 대문자로 시작한다
-	
-	
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
