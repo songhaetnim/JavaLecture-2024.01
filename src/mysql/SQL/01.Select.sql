@@ -12,15 +12,17 @@ DESC city;
  * 1. Select
  */
  /*
- SELECT 필드명  
-    FROM 테이블명
-    JOIN 테이블명
-    ON 조인 조건
-    WHERE 조회 조건
-    GROUP BY 필드명
-    HAVING 그룹 조건
-    ORDER BY 필드명 순서
-    LIMIT 숫자 OFFSET 숫자;
+ SELECT 필드명  - 이 순서대로 꼭 써야함!!!!!
+    FROM 테이블명 - (FROM 써서 country 테이블을 불러온다)
+    JOIN 테이블명 - (A라는 테이블과 B라는 테이블을 한 공간 같이 두는것)
+    ON 조인 조건 - (A라는 테이블에서의 내용과 B라는테이블의 내용이 같은걸 합친다.)
+    WHERE 조회 조건 - (내가 조건을 지정하여 내가 원하는 데이터만을 검색하게 한다.)
+    GROUP BY 필드명 - (그룹조건 필드내의 데이터가 중복되면 그 중 하나만 보이게 해줌)
+    HAVING 그룹 조건 - ( GROUP BY 형 조건 그룹에 추가적인 조건을 지정한다.)
+    ORDER BY 필드명 순서 - (내림차순/오름차순으로 정렬할 떄 쓴다 다만  
+    ORDER BY 필드명은  1 에서 2로 갈때 오름차순
+    ORDER BY 필드명 DESC은 2 에서 1로 갈때 내림차순 ** 내림차순일떈 DESC 꼭 씀 꼬리표처럼 꼭 씀
+    LIMIT 숫자 OFFSET 숫자)
 */
 
 

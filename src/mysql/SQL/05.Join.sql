@@ -54,7 +54,7 @@ insert into girl_group (name,debut,hit_song_id)values
     */
 # Inner join
  SELECT r.name, r.debut, l.title,l.lyrics from song l
- INMER JOIN girl_group r
+ INNER JOIN girl_group r
 	ON l.sid=r.hit_song_id;
 
  # Left outer join

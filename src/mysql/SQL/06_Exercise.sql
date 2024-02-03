@@ -45,3 +45,9 @@ WHERE r.IsOfficial='T'
 GROUP BY l.Code
 ORDER BY l.gnp DESC
 LIMIT 10;
+
+
+/*
+ORDER BY 필드명은  1 에서 2로 갈때 오름차순
+ORDER BY 필드명 DESC은  2 에서 1로 갈때 내림차순 ** 내림차순일떈 DESC 꼭 씀 꼬리표처럼 꼭 씀 
+*/
