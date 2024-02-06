@@ -1,4 +1,4 @@
-package mysql.sec99_song;
+package mysql.sec03_song;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ SongDao songDao = new SongDao();
 		Song song = songDao.getSongById(101);
 		System.out.println(song);
 		
-		song = songDao.getSongByTitle("8282");
+		song = songDao.getSongByTitle("별빛");     // %별빛% - 제목에 별빛 검색
 		System.out.println(song);
 		System.out.println("===================================================");
 		

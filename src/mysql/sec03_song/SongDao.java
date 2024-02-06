@@ -1,4 +1,4 @@
-package mysql.sec99_song;
+package mysql.sec03_song;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -18,6 +18,7 @@ public class SongDao {
 	public SongDao() {
 		String path = "C:/Workspace/Java/lesson/src/mysql/mysql.properties";
 		try {
+			// 파라메터 세팅
 			Properties prop = new Properties();
 			prop.load(new FileInputStream(path));
 			String host = prop.getProperty("host");
@@ -50,7 +51,8 @@ public class SongDao {
 			// 파라메터 세팅
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, sid);
-
+			
+			// Select 실행하고 결과를 ResultSet으로 받기
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				song.setSid(rs.getInt(1));
@@ -68,12 +70,13 @@ public class SongDao {
 
 	public Song getSongByTitle(String title) {
 		Connection conn = myConnection();
-		String sql = "select * from song where title=?"; // 1번째
+//		String sql = "select * from song where title=?"; // 1번째
+		String sql = "select * from song where title like ?"; // 1번째 <=이게 좋다
 		Song song = null;
 		try {
 			// 파라메터 세팅
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, title); // 1번째 받아온 name 값
+			pstmt.setString(1, "%" + title + "%"); // 1번째 받아온 name 값(%별빛% - 제목에 별빛 검색)
 
 			// Select 실행하고 결과를 ResultSet으로 받기
 			ResultSet rs = pstmt.executeQuery();
@@ -90,7 +93,9 @@ public class SongDao {
 		return song;
 	}
 	
-	public List<Song> getSongListAll() {
+	public List<Song> getSongListAll() { // 몽땅 다 가져옴,List이해도가중요하고 무조건씀
+		
+		
 		Connection conn = myConnection();
 		String sql = "select * from song";
 		List<Song> list = new ArrayList<Song>();
@@ -137,8 +142,8 @@ public class SongDao {
 		try {
 			// 파라메타 세팅
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, song.getLyrics());
-			pstmt.setString(2, song.getTitle());
+			pstmt.setString(1, song.getTitle());
+			pstmt.setString(2, song.getLyrics());
 			pstmt.setInt(3, song.getSid());
 
 			// SQL 실행
