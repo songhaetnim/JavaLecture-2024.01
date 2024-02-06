@@ -1,6 +1,6 @@
 # HN added
 mysql.properties
-bin
+bin/
 
 # Compiled class file
 *.class
