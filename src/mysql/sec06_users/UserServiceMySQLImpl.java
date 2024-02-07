@@ -29,13 +29,13 @@ public class UserServiceMySQLImpl implements UserService {
 
 	@Override
 	public void updateUser(User user) {
-		// TODO Auto-generated method stub
+		userDao.updateUser(user);
 		
 	}
 
 	@Override
 	public void deleteUser(String uid) {
-		// TODO Auto-generated method stub
+		userDao.deleteUser(uid);
 		
 	}
 
@@ -51,7 +51,7 @@ public class UserServiceMySQLImpl implements UserService {
 
 	@Override
 	public void close() {
-		// TODO Auto-generated method stub
+		userDao.close();
 		
 	}
 
