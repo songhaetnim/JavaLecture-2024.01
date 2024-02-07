@@ -20,3 +20,4 @@ public interface MessageService {
 	void close();
 	
 }
+// 정리된 이 메소드를 씀
