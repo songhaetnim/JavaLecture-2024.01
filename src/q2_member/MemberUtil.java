@@ -1,12 +1,12 @@
-package q2_member;
-
-public class MemberUtil {
-	
-	public List getMemberList() {
-		
-		
-		
-	}
-	
-
-}
+//package q2_member;
+//
+//public class MemberUtil {
+//	
+//	public List getMemberList() {
+//		
+//		
+//		
+//	}
+//	
+//
+//}
