@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+
 public class UserServiceMySQLImpl implements UserService {
 	private UserDao userDao = new UserDao();
 	
