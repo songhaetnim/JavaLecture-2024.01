@@ -56,9 +56,9 @@ public class BoardDao {
 			
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				board = new Board(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
-								 LocalDateTime.parse(rs.getString(5).replace(" ", "T")), 
-										 rs.getInt(6), rs.getInt(7), rs.getInt(8));
+				board = new Board(rs.getString(1), rs.getString(2), rs.getString(3), 
+						 LocalDateTime.parse(rs.getString(4).replace(" ", "T")), 
+						 rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getString(8));
 			}
 			rs.close(); pstmt.close();
 		} catch (Exception e) {
@@ -85,7 +85,7 @@ public class BoardDao {
 			while (rs.next()) {
 				Board board = new Board(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						 LocalDateTime.parse(rs.getString(5).replace(" ", "T")), 
-						 rs.getInt(6), rs.getInt(7), rs.getInt(8));
+						 rs.getInt(6), rs.getInt(7), rs.getInt(8),rs.getString(9));
 				list.add(board);
 			}
 			rs.close(); pstmt.close();
@@ -94,17 +94,17 @@ public class BoardDao {
 		}
 		return list;
 	}
-	public String listForm() {
-		return String.format("%3d %2d %2d %s %s ^%s^ %s%n",
-				bid,viewCount,replyCount,
-				modTime.toString().replace("T", " ").substring(2, 6),uname,tatle,re)
-	}
+//	public String listForm() {
+//		return String.format("%3d %2d %2d %s %s ^%s^ %s%n",
+//				bid,viewCount,replyCount,
+//				modTime.toString().replace("T", " ").substring(2, 6),uname,tatle,re)
+//	}
 	public void insertBoard(Board board) {
 		String sql = "insert into board values (default, ?, ?, ?, default, default, default, default)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, board.getTitleString());
-			pstmt.setString(2, board.getContentString());
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getContent());
 			pstmt.setString(3, board.getUid());
 			
 			pstmt.executeUpdate();
@@ -124,7 +124,16 @@ public class BoardDao {
 	
 	// field 값은 view 또는 reply
 	public void increaseCount(String field, int bid) {
-		
+		String sql = "UPDATE board SET " + field + "Count=" + field + "Count+1 WHERE bid=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+		    pstmt.setInt(1, bid);
+			
+		    pstmt.executeUpdate();
+			pstmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

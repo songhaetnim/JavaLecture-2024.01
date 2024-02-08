@@ -1,87 +1,146 @@
 package mysql.sec07_bbs.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDate; 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Board {
 	private int bid;
-	private String titleString;
-	private String contentString;
-	private String uid;
-	private LocalDateTime moLocalDateTime;
+	private String title;
+	private String content;
+	private String uid; 
+	private LocalDateTime modTime;
 	private int isDeleted;
 	private int viewCount;
 	private int replyCount;
+	private String uname;
+	private List<Reply> replyList;
 	
-	public Board() { }
+	public Board() { 
 	
-	public Board(int bid, String titleString, String contentString, String uid, LocalDateTime moLocalDateTime,
-			int isDeleted, int viewCount, int replyCount) {
+	}
+
+	
+	public Board(int bid, String title, String content, String uid, LocalDateTime modTime, int isDeleted, int viewCount,
+			int replyCount, String uname) {
+		super();
 		this.bid = bid;
-		this.titleString = titleString;
-		this.contentString = contentString;
+		this.title = title;
+		this.content = content;
 		this.uid = uid;
-		this.moLocalDateTime = moLocalDateTime;
+		this.modTime = modTime;
 		this.isDeleted = isDeleted;
 		this.viewCount = viewCount;
 		this.replyCount = replyCount;
+		this.uname = uname;
 	}
 	
-	@Override
-	public String toString() {
-		return "Board [bid=" + bid + ", titleString=" + titleString + ", contentString=" + contentString + ", uid="
-				+ uid + ", moLocalDateTime=" + moLocalDateTime + ", isDeleted=" + isDeleted + ", viewCount=" + viewCount
-				+ ", replyCount=" + replyCount + "]";
+	
+	
+	
+
+
+	public Board(String title, String content, String uid, LocalDateTime modTime, int isDeleted, int viewCount,
+			int replyCount, String uname) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.uid = uid;
+		this.modTime = modTime;
+		this.isDeleted = isDeleted;
+		this.viewCount = viewCount;
+		this.replyCount = replyCount;
+		this.uname = uname;
 	}
+
+
+	public String listForm() {
+		return String.format("%3d %2d %s  | %s | %s [%d] |", 
+				bid, viewCount, modTime.toString().replace("T", " ").substring(2, 16), 
+				uname, title, replyCount);
+	}
+
 	public int getBid() {
 		return bid;
 	}
+
 	public void setBid(int bid) {
 		this.bid = bid;
 	}
-	public String getTitleString() {
-		return titleString;
+
+	public String getTitle() {
+		return title;
 	}
-	public void setTitleString(String titleString) {
-		this.titleString = titleString;
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getContentString() {
-		return contentString;
+
+	public String getContent() {
+		return content;
 	}
-	public void setContentString(String contentString) {
-		this.contentString = contentString;
+
+	public void setContent(String content) {
+		this.content = content;
 	}
+
 	public String getUid() {
 		return uid;
 	}
+
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
-	public LocalDateTime getMoLocalDateTime() {
-		return moLocalDateTime;
+
+
+	public LocalDateTime getModTime() {
+		return modTime;
 	}
-	public void setMoLocalDateTime(LocalDateTime moLocalDateTime) {
-		this.moLocalDateTime = moLocalDateTime;
+
+
+	public void setModTime(LocalDateTime modTime) {
+		this.modTime = modTime;
 	}
+
+
 	public int getIsDeleted() {
 		return isDeleted;
 	}
+
 	public void setIsDeleted(int isDeleted) {
 		this.isDeleted = isDeleted;
 	}
+
 	public int getViewCount() {
 		return viewCount;
 	}
+
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
 	}
+
 	public int getReplyCount() {
 		return replyCount;
 	}
+
 	public void setReplyCount(int replyCount) {
 		this.replyCount = replyCount;
 	}
+
+	public String getUname() {
+		return uname;
+	}
+
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
 	
+	public void setReplyList(List<Reply> replyList) {
+		this.replyList = replyList;
+	}
+	public List<Reply> getReplyList() {
+		return replyList;
+	}
 	
 	
 }
