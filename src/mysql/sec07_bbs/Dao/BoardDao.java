@@ -3,10 +3,16 @@ package mysql.sec07_bbs.Dao;
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import mysql.sec07_bbs.entity.Board;
+import mysql.sec07_bbs.entity.User;
 
 
 public class BoardDao {
@@ -16,7 +22,7 @@ public class BoardDao {
 	private Connection conn;
 	
 	public BoardDao() {
-		String path = "C:/Workspace/Java/lesson/src/mysql/mysql.properties";
+		String path = "C:/Workspace/Java/lesson/src/mysql/sec07_bbs/mysql.properties";
 		try {
 			Properties prop = new Properties();
 			prop.load(new FileInputStream(path));
@@ -42,19 +48,70 @@ public class BoardDao {
 	}
 	
 	public Board getBoard(int bid) {
-		
-		return null;
+		String sql = "select * from board where bid=?";
+		Board board = null;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bid);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				board = new Board(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+								 LocalDateTime.parse(rs.getString(5).replace(" ", "T")), 
+										 rs.getInt(6), rs.getInt(7), rs.getInt(8));
+			}
+			rs.close(); pstmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return board;
 	}
+	
 
 	// field 값은 title, content, uid 등 attribute name
 	// query 값은 검색어
 	public List<Board> getBoardList(String field, String query, int num, int offset) {
-		
-		return null;
+		String sql = "select * from board where ?=?"
+				+ " limit ? offset ?";
+		List<Board> list = new ArrayList<Board>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, field);
+			pstmt.setString(2, query);
+			pstmt.setInt(3, num);
+			pstmt.setInt(4, offset);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Board board = new Board(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						 LocalDateTime.parse(rs.getString(5).replace(" ", "T")), 
+						 rs.getInt(6), rs.getInt(7), rs.getInt(8));
+				list.add(board);
+			}
+			rs.close(); pstmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
-	
+	public String listForm() {
+		return String.format("%3d %2d %2d %s %s ^%s^ %s%n",
+				bid,viewCount,replyCount,
+				modTime.toString().replace("T", " ").substring(2, 6),uname,tatle,re)
+	}
 	public void insertBoard(Board board) {
-		
+		String sql = "insert into board values (default, ?, ?, ?, default, default, default, default)";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board.getTitleString());
+			pstmt.setString(2, board.getContentString());
+			pstmt.setString(3, board.getUid());
+			
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void updateBoard(Board board) {
@@ -72,3 +129,6 @@ public class BoardDao {
 	
 }
 
+//SELECT b. *, u.uname FROM board b
+//JOIN users u ON b.uid=u.uid
+//WHERE b.bid=1;

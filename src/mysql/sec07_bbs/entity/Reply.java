@@ -6,23 +6,21 @@ public class Reply {
 	private int rid;
 	private String comment;
 	private LocalDateTime regTime;
-	private String uidString;
 	private String uid;
 	private int bid;
 	
 	public Reply() { }
-	public Reply(int rid, String comment, LocalDateTime regTime, String uidString, String uid, int bid) {
+	public Reply(int rid, String comment, LocalDateTime regTime,  String uid, int bid) {
 		this.rid = rid;
 		this.comment = comment;
 		this.regTime = regTime;
-		this.uidString = uidString;
 		this.uid = uid;
 		this.bid = bid;
 	}
 
 	@Override
 	public String toString() {
-		return "Reply [rid=" + rid + ", comment=" + comment + ", regTime=" + regTime + ", uidString=" + uidString
+		return "Reply [rid=" + rid + ", comment=" + comment + ", regTime=" + regTime 
 				+ ", uid=" + uid + ", bid=" + bid + "]";
 	}
 	public int getRid() {
@@ -43,12 +41,7 @@ public class Reply {
 	public void setRegTime(LocalDateTime regTime) {
 		this.regTime = regTime;
 	}
-	public String getUidString() {
-		return uidString;
-	}
-	public void setUidString(String uidString) {
-		this.uidString = uidString;
-	}
+	
 	public String getUid() {
 		return uid;
 	}
